@@ -39,7 +39,7 @@ const Homesectioncarousal = ({data,sectionName}) => {
           <Button
             onClick={slideNext}
             variant="contained"
-            className="z-50 bg-white"
+            className="z-20 bg-white"
             sx={{
               position: "absolute",
               top: "8rem",
@@ -58,7 +58,7 @@ const Homesectioncarousal = ({data,sectionName}) => {
           <Button
             onClick={slidePrev}
             variant="contained"
-            className="z-50 bg-white"
+            className="z-20 bg-white"
             sx={{
               position: "absolute",
               top: "8rem",

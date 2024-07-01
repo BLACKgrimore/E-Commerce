@@ -75,7 +75,7 @@ export default function Navigation() {
   // };
 
   return (
-    <div className="bg-white pb-10">
+    <div className="bg-white">
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
@@ -362,7 +362,7 @@ export default function Navigation() {
                                                 className="flex"
                                               >
                                                 <p
-                                                  
+
                                                   className="cursor-pointer hover:text-gray-800"
                                                 >
                                                   {item.name}
@@ -405,12 +405,12 @@ export default function Navigation() {
                         aria-controls={open ? "basic-menu" : undefined}
                         aria-haspopup="true"
                         aria-expanded={open ? "true" : undefined}
-                        // onClick={handleUserClick}
-                        // sx={{
-                        //   bgcolor: deepPurple[500],
-                        //   color: "white",
-                        //   cursor: "pointer",
-                        // }}
+                      // onClick={handleUserClick}
+                      // sx={{
+                      //   bgcolor: deepPurple[500],
+                      //   color: "white",
+                      //   cursor: "pointer",
+                      // }}
                       >
                         {/* {true?.firstName[0].toUpperCase()} */}
                       </Avatar>
@@ -452,10 +452,10 @@ export default function Navigation() {
 
                 {/* Search */}
                 <div className="flex items-center lg:ml-6">
-                
+
                   <p className="p-2 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Search</span>
-                    
+
                     <MagnifyingGlassIcon
                       className="h-6 w-6"
                       aria-hidden="true"
@@ -466,7 +466,7 @@ export default function Navigation() {
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
                   <Button
-                  
+
                     className="group -m-2 flex items-center p-2"
                   >
                     <ShoppingBagIcon

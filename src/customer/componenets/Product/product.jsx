@@ -15,8 +15,8 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import { mens_kurta } from '../../../data/mens_kurta.js'
 import Productcard from './productcard'
-import { singleFilter } from './FilterData.js'
-import { filters } from './FilterData.js'
+// import {  } from './FilterData.js'
+import { color, filters, singleFilter } from './FilterData.js'
 import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material'
 
 
@@ -106,6 +106,8 @@ export default function Product() {
                   </Disclosure>
                 ))}
               </form>
+
+
             </DialogPanel>
           </div>
         </Dialog>
@@ -174,7 +176,52 @@ export default function Product() {
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
               {/* Filters */}
               <form className="hidden lg:block">
-              
+
+                <form className="mt-4 border-t border-gray-200">
+
+                  {filters.map((section) => (
+                    <Disclosure as="div" key={section.id} className="border-t border-gray-200 py-6">
+                      {({ open }) => (
+                        <>
+                          <h3 className="-mx-2 -my-3 flow-root">
+                            <DisclosureButton className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
+                              <span className="font-medium text-gray-900">{section.name}</span>
+                              <span className="ml-6 flex items-center">
+                                {open ? (
+                                  <MinusIcon className="h-5 w-5" aria-hidden="true" />
+                                ) : (
+                                  <PlusIcon className="h-5 w-5" aria-hidden="true" />
+                                )}
+                              </span>
+                            </DisclosureButton>
+                          </h3>
+                          <DisclosurePanel className="pt-6">
+                            <div className="space-y-6">
+                              {section.options.map((option, optionIdx) => (
+                                <div key={option.value} className="flex items-center">
+                                  <input
+                                    id={`filter-mobile-${section.id}-${optionIdx}`}
+                                    name={`${section.id}[]`}
+                                    defaultValue={option.value}
+                                    type="checkbox"
+                                    defaultChecked={option.checked}
+                                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                  />
+                                  <label
+                                    htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
+                                    className="ml-3 min-w-0 flex-1 text-gray-500"
+                                  >
+                                    {option.label}
+                                  </label>
+                                </div>
+                              ))}
+                            </div>
+                          </DisclosurePanel>
+                        </>
+                      )}
+                    </Disclosure>
+                  ))}
+                </form>
 
                 {singleFilter.map((section) => (
                   <Disclosure as="div" key={section.id} className="border-b border-gray-200 py-6">
@@ -182,7 +229,8 @@ export default function Product() {
                       <>
                         <h3 className="-my-3 flow-root">
                           <DisclosureButton className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
-                            <span className="font-medium text-gray-900">{section.name}</span>
+                            {/* <span className="font-medium "></span> */}
+                            <FormLabel className='text-gray-900' id="demo-radio-buttons-group-label">{section.name}</FormLabel>
                             <span className="ml-6 flex items-center">
                               {open ? (
                                 <MinusIcon className="h-5 w-5" aria-hidden="true" />
@@ -194,20 +242,23 @@ export default function Product() {
                         </h3>
                         <DisclosurePanel className="pt-6">
                           <div className="space-y-4">
-                            {section.options.map((option, optionIdx) => (
-                              <FormControl>
-                              <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
+                            <FormControl>
                               <RadioGroup
                                 aria-labelledby="demo-radio-buttons-group-label"
                                 defaultValue="female"
                                 name="radio-buttons-group"
                               >
-                                <FormControlLabel value="female" control={<Radio />} label="Female" />
-                                <FormControlLabel value="male" control={<Radio />} label="Male" />
-                                <FormControlLabel value="other" control={<Radio />} label="Other" />
+                                {section.options.map((option, optionIdx) => (
+
+
+                                  <>
+                                    <FormControlLabel value={option.id} control={<Radio />} label={option.label} />
+
+                                  </>
+
+                                ))}
                               </RadioGroup>
                             </FormControl>
-                            ))}
                           </div>
                         </DisclosurePanel>
                       </>
@@ -220,7 +271,7 @@ export default function Product() {
               <div className="lg:col-span-4 w-full">
 
                 <div className='flex flex-wrap justify-center bg-white py-5'>
-                  {mens_kurta.map((item) => <Productcard product={item}/>)}
+                  {mens_kurta.map((item) => <Productcard product={item} />)}
                 </div>
 
               </div>

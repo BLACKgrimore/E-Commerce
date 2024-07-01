@@ -1,4 +1,4 @@
-export const color = [
+const color = [
     "white",
     "Black",
     "Red",
@@ -9,7 +9,7 @@ export const color = [
     "Yellow",
 ];
 
-export const filters = [
+const filters = [
     {
         id: "color",
         name: "Color",
@@ -34,7 +34,7 @@ export const filters = [
     },
 ];
 
-export const singleFilter = [
+const singleFilter = [
     {
         id: "price",
         name: "Price",
@@ -69,3 +69,5 @@ export const singleFilter = [
         ],
     },
 ]
+
+export {color,filters,singleFilter}

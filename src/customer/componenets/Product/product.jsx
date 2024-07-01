@@ -15,7 +15,9 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import { mens_kurta } from '../../../data/mens_kurta.js'
 import Productcard from './productcard'
-import { filters, singleFilter } from './FilterData.js'
+import { singleFilter } from './FilterData.js'
+import { filters } from './FilterData.js'
+import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material'
 
 
 const sortOptions = [
@@ -193,22 +195,18 @@ export default function Product() {
                         <DisclosurePanel className="pt-6">
                           <div className="space-y-4">
                             {section.options.map((option, optionIdx) => (
-                              <div key={option.value} className="flex items-center">
-                                <input
-                                  id={`filter-${section.id}-${optionIdx}`}
-                                  name={`${section.id}[]`}
-                                  defaultValue={option.value}
-                                  type="checkbox"
-                                  defaultChecked={option.checked}
-                                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                />
-                                <label
-                                  htmlFor={`filter-${section.id}-${optionIdx}`}
-                                  className="ml-3 text-sm text-gray-600"
-                                >
-                                  {option.label}
-                                </label>
-                              </div>
+                              <FormControl>
+                              <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
+                              <RadioGroup
+                                aria-labelledby="demo-radio-buttons-group-label"
+                                defaultValue="female"
+                                name="radio-buttons-group"
+                              >
+                                <FormControlLabel value="female" control={<Radio />} label="Female" />
+                                <FormControlLabel value="male" control={<Radio />} label="Male" />
+                                <FormControlLabel value="other" control={<Radio />} label="Other" />
+                              </RadioGroup>
+                            </FormControl>
                             ))}
                           </div>
                         </DisclosurePanel>

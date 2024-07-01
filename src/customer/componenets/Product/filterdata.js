@@ -29,7 +29,7 @@ export const filters = [
         options: [
             { value: "S", label: "S" },
             { value: "M", label: "M" },
-            { value: "[", label: "L" },
+            { value: "L", label: "L" },
         ]
     },
 ];

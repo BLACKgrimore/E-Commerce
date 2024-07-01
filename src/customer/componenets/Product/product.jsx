@@ -15,7 +15,8 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import { mens_kurta } from '../../../data/mens_kurta.js'
 import Productcard from './productcard'
-import {singleFilter ,color, filters} from './filterdata.js'
+import { filters, singleFilter } from './FilterData.js'
+
 
 const sortOptions = [
   { name: 'Price: Low to High', href: '#', current: false },

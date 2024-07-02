@@ -25,11 +25,9 @@ function Customerrouter() {
         <Route path='/cart' element={<Cart />}></Route>
         <Route path='/:lavel0ne/:lavelTwo/:lavelThree' element={<Product/>}></Route>
         <Route path='/product/:productId' element={<Productdetails/>}></Route>
-        
-        {/* <Cart/> */}
-        {/* <Checkout/> */}
-        {/* <Order/> */}
-        {/* <Orderdetails /> */}
+        <Route path='/checkout' element={<Checkout/>}></Route>
+        <Route path='/account/order' element={<Order/>}></Route>
+        <Route path='/account/order/:orderId' element={<Orderdetails/>}></Route>
 
       </Routes>
 

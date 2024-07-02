@@ -25,10 +25,10 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   // const dispatch = useDispatch();
-  // const { auth, cart } = useSelector((store) => store);
-  // const [openAuthModal, setOpenAuthModal] = useState(false);
-  // const [anchorEl, setAnchorEl] = useState(null);
-  // const openUserMenu = Boolean(anchorEl);
+  // const { auth, cart } = useSelector ((store) => store);
+  const [openAuthModal, setOpenAuthModal] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const openUserMenu = Boolean(anchorEl);
   // const jwt = localStorage.getItem("jwt");
   const location = useLocation();
 
@@ -39,19 +39,19 @@ export default function Navigation() {
   //   }
   // }, [jwt]);
 
-  // const handleUserClick = (event) => {
-  //   setAnchorEl(event.currentTarget);
-  // };
-  // const handleCloseUserMenu = (event) => {
-  //   setAnchorEl(null);
-  // };
+  const handleUserClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleCloseUserMenu = (event) => {
+    setAnchorEl(null);
+  };
 
-  // const handleOpen = () => {
-  //   setOpenAuthModal(true);
-  // };
-  // const handleClose = () => {
-  //   setOpenAuthModal(false);
-  // };
+  const handleOpen = () => {
+    setOpenAuthModal(true);
+  };
+  const handleClose = () => {
+    setOpenAuthModal(false);
+  };
 
   const handleCategoryClick = (category, section, item, close) => {
     navigate(`/${category.id}/${section.id}/${item.id}`);
@@ -67,16 +67,16 @@ export default function Navigation() {
   //   }
   // }, [auth.user]);
 
-  // const handleLogout = () => {
-  //   handleCloseUserMenu();
-  //   dispatch(logout());
-  // };
-  // const handleMyOrderClick = () => {
-  //   handleCloseUserMenu();
-  //   auth.user?.role === "ROLE_ADMIN"
-  //     ? navigate("/admin")
-  //     : navigate("/account/order");
-  // };
+  const handleLogout = () => {
+    handleCloseUserMenu();
+    // dispatch(logout());
+  };
+  const handleMyOrderClick = () => {
+    handleCloseUserMenu();
+    // auth.user?.role === "ROLE_ADMIN"
+    //   ? navigate("/admin")
+    //   : navigate("/account/order");
+  };
 
   return (
     <div className="bg-white pb-10">
@@ -407,8 +407,11 @@ export default function Navigation() {
               </Popover.Group>
 
               <div className="ml-auto flex items-center">
-                {/* <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  {auth.user ? (
+                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                  {
+                  // auth.user
+                  true
+                   ? (
                   <div>
                     <Avatar
                       className="text-white"
@@ -416,14 +419,14 @@ export default function Navigation() {
                       aria-controls={open ? "basic-menu" : undefined}
                       aria-haspopup="true"
                       aria-expanded={open ? "true" : undefined}
-                      // onClick={handleUserClick}
+                      
                       sx={{
                         bgcolor: deepPurple[500],
                         color: "white",
                         cursor: "pointer",
                       }}
                     >
-                      {auth.user?.firstName[0].toUpperCase()}
+                      {/* {auth.user?.firstName[0].toUpperCase()} */}
                     </Avatar>
                     <Button
                         id="basic-button"
@@ -443,12 +446,16 @@ export default function Navigation() {
                           "aria-labelledby": "basic-button",
                         }}
                       >
-                        <MenuItem onClick={handleMyOrderClick}>
-                          {auth.user?.role === "ROLE_ADMIN"
+                        <MenuItem 
+                        onClick={handleMyOrderClick}
+                        >
+                          {/* {auth.user?.role === "ROLE_ADMIN"
                             ? "Admin Dashboard"
-                            : "My Orders"}
+                            : "My Orders"} */}
                         </MenuItem>
-                        <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                        <MenuItem 
+                        // onClick={handleLogout}
+                        >Logout</MenuItem>
                       </Menu>
                   </div>
                   ) : (
@@ -459,7 +466,7 @@ export default function Navigation() {
                     Signin
                   </Button>
                   )}
-                </div> */}
+                </div>
 
                 {/* Search */}
                 <div className="flex items-center lg:ml-6">

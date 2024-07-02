@@ -1,8 +1,14 @@
 import React from 'react';
 import Cartitem from './cartitem';
 import { Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 function Cart() {
+  const navigate = useNavigate()
+
+  const handleCheckout = () => {
+      navigate("/checkout?step=2")
+  }
   return (
     <div className='pt-8'>
 
@@ -38,7 +44,7 @@ function Cart() {
 
             </div>
 
-            <Button variant="contained" className='w-full mt-5' 
+            <Button onClick={handleCheckout} variant="contained" className='w-full mt-5' 
                     sx={{ px: "2.5rem", py: ".7rem", bgcolor: "#9155fd" }}>
               Checkout
             </Button>

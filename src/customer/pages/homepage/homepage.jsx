@@ -1,6 +1,6 @@
 import React from 'react';
 import Carousal from "../../componenets/maincarousal/maincarousel.jsx"
-import Homesectioncard from '../../componenets/homesectioncard/homesectioncard.jsx';
+// import Homesectioncard from '../../componenets/homesectioncard/homesectioncard.jsx';
 import Homesectioncarousal from '../../componenets/homesectioncarousal/homesectioncarousal.jsx';
 import { mens_kurta } from '../../../data/mens_kurta.js';
 

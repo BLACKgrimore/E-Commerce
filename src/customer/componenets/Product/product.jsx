@@ -17,7 +17,7 @@ import { mens_kurta } from '../../../data/mens_kurta.js'
 import Productcard from './productcard'
 import FilterListIcon from '@mui/icons-material/FilterList';
 // import {  } from './FilterData.js'
-import {filters, singleFilter } from './FilterData.js'
+import { color, filters, singleFilter } from './FilterData.js'
 import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material'
 import { useLocation, useNavigate } from 'react-router-dom'
 

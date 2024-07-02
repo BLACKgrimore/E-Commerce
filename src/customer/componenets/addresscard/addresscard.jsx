@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Addresscart() {
+function Addresscard() {
   return (
     <div>
       <div className='space-y-3'>
@@ -15,4 +15,4 @@ function Addresscart() {
   );
 }
 
-export default Addresscart;
+export default Addresscard;

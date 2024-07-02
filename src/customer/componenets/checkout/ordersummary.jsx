@@ -1,20 +1,21 @@
 import React from 'react';
-import Addresscart from '../addresscart/addresscart';
+import Addresscard from '../addresscard/addresscard.jsx';
 import Cartitem from '../cart/cartitem';
 import { Button } from '@mui/material';
+import { mens_kurta } from '../../../data/mens_kurta';
 
 function Ordersummary() {
   return (
     <div>
       <div className='p-5 shadow-lg rounded-s-md border'>
-        <Addresscart />
+        <Addresscard />
       </div>
 
       <div className='pt-5'>
 
       <div className='lg:grid grid-cols-3 relative'>
         <div className='col-span-2'>
-          {[1,1,1,1,1].map((item) => <Cartitem />)}
+          {mens_kurta.map((item) => <Cartitem />)}
         </div>
 
         <div className='px-5 sticky top-0 h-[100vh] mt-5 lg:mt-0'>
@@ -51,9 +52,6 @@ function Ordersummary() {
 
           </div>
         </div>
-
-
-
       </div>
     </div >
 

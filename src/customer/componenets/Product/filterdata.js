@@ -70,4 +70,4 @@ const singleFilter = [
     },
 ]
 
-export {color,filters,singleFilter}
+export { color, filters, singleFilter }

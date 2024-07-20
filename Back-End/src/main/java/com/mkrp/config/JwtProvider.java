@@ -17,7 +17,8 @@ public class JwtProvider {
         return Jwts.builder()
                 .claim("email",auth.getName())
                 .setIssuedAt(java.util.Date.from(java.time.Instant.now()))
-                .setExpiration(java.util.Date.from(java.time.Instant.now().plusMillis(JwtConstants.EXPIRATION_TIME)))
+                .setExpiration(java.util.Date.from(java.time.Instant.now()
+                        .plusMillis(JwtConstants.EXPIRATION_TIME)))
                 .signWith(key)
                 .compact();
     }
